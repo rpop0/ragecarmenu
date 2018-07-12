@@ -7,9 +7,12 @@ $('#menuFix').click(() =>{
 	mp.trigger('menuFixToServer');
 });
 
+
 $('#menuEngine').click(() =>{
 	$("#mainButtons").fadeIn(300, function(){
 		$("#mainButtons").hide();
+		$("#maint").hide();
+		$('#enopt').show();
 		$("#engineButtons").fadeIn(300);
 		$("#backButton").fadeIn();
 	});
@@ -19,15 +22,19 @@ $('#menuEngine').click(() =>{
 $('#menuTrans').click(() =>{
 	$("#mainButtons").fadeIn(300, function(){
 		$("#mainButtons").hide();
+		$("#maint").hide();
+		$('#tropt').show();
 		$("#transmissionButtons").fadeIn(300);
 		$("#backButton").fadeIn();
 	});
 });
 
-$('#menuBreaks').click(() =>{
+$('#menuBrakes').click(() =>{
 	$("#mainButtons").fadeIn(300, function(){
 		$("#mainButtons").hide();
-		$("#breaksButtons").fadeIn(300);
+		$("#maint").hide();
+		$('#bropt').show();
+		$("#brakesButtons").fadeIn(300);
 		$("#backButton").fadeIn();
 	});
 });
@@ -35,7 +42,19 @@ $('#menuBreaks').click(() =>{
 $('#menuSusp').click(() =>{
 	$("#mainButtons").fadeIn(300, function(){
 		$("#mainButtons").hide();
+		$("#maint").hide();
+		$('#suopt').show();
 		$("#suspensionButtons").fadeIn(300);
+		$("#backButton").fadeIn();
+	});
+});
+
+$('#menuColor').click(() =>{
+	$("#mainButtons").fadeIn(300, function(){
+		$("#mainButtons").hide();
+		$("#maint").hide();
+		$('#colopt').show();
+		$("#colorOptions").fadeIn(300);
 		$("#backButton").fadeIn();
 	});
 });
@@ -106,7 +125,49 @@ $('#su5').click(() =>{
 $("#backButton").click(() =>{
 	$(".rozihide").slideUp(300, function(){
 		$(".rozihide").hide();
+		$(".mtitles").hide();
+		$("#maint").show();
 		$("#mainButtons").fadeIn(300);
 		$("#backButton").fadeOut();
 	});
 });
+
+
+//COLOR SLIDER
+var canvas = $("#myCanvas").get(0);
+var ctx = canvas.getContext("2d");
+var image = new Image();
+image.crossOrigin = 'anonymous';
+image.src = "https://i.imgur.com/WPrIoBg.png";
+image.onload = function() {
+ctx.drawImage(image, 0, 0);
+};
+$("#myCanvas").mousemove(function(e) { // mouse move handler
+
+        var canvasOffset = $(canvas).offset();
+        var canvasX = Math.floor(e.pageX - canvasOffset.left);
+        var canvasY = Math.floor(e.pageY - canvasOffset.top);
+        var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+        var pixel = imageData.data;
+        var pixelColor = "rgba("+pixel[0]+", "+pixel[1]+", "+pixel[2]+", "+pixel[3]+")";
+
+        $('#preview').css('backgroundColor', pixelColor);
+
+    });
+$('#myCanvas').click(function(e,red,green,bblue) { // mouse click handler
+        var canvasOffset = $(canvas).offset();
+        var canvasX = Math.floor(e.pageX - canvasOffset.left);
+        var canvasY = Math.floor(e.pageY - canvasOffset.top);
+        var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+        var pixel = imageData.data;
+        var red = pixel[0];
+        var green = pixel[1];
+        var blue = pixel[2];
+        mp.trigger('carColorChangeToServer', red, green, blue);
+
+    });
+
+
+
+
+     

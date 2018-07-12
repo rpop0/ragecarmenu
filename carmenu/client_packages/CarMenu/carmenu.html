@@ -17,9 +17,15 @@
 	<div class="jumbotron" style="padding-top: 0px;">
 		<div class="row">
 		<button id="backButton"	class="btn btn-primary pull-left col-sm" style="display: none">Back</button>
-		<small class="pull-right col-sm text-muted">Version 1.0, Credits; Rozi 2018</small>
+		<small class="pull-right col-sm text-muted">Version 1.0.3, Credits Rozi 2018</small>
 
-		<h2 class="col-sm-6 center-block">Vehicle Menu</h2>
+		<h2 id="maint" class="col-sm-6 center-block mtitles">Vehicle Menu</h2>
+		<h2 id="enopt" class="col-sm-6 center-block mtitles" style="display: none">Engine options</h2>
+		<h2 id="tropt" class="col-sm-6 center-block mtitles" style="display: none">Transmission options</h2>
+		<h2 id="bropt" class="col-sm-6 center-block mtitles" style="display: none">Breaks options</h2>
+		<h2 id="suopt" class="col-sm-6 center-block mtitles" style="display: none">Suspension options</h2>
+		<h2 id="colopt" class="col-sm-6 center-block mtitles" style="display: none">Color options</h2>
+
 		</div>
 		<hr>
 			<div class="container">
@@ -27,8 +33,9 @@
 				<div class="row" id="mainButtons">
 					<button type="button" id="menuEngine" class="btn btn-primary col-sm-12 btn-block ">Engine options</button>
 					<button type="button" id="menuTrans" class="btn btn-primary col-sm-12 btn-block ">Transmission options</button>
-					<button type="button" id="menuBreaks" class="btn btn-primary col-sm-12 btn-block ">Brakes Options</button>
+					<button type="button" id="menuBrakes" class="btn btn-primary col-sm-12 btn-block ">Brakes Options</button>
 					<button type="button" id="menuSusp" class="btn btn-primary col-sm-12 btn-block ">Suspension Options</button>
+					<button type="button" id="menuColor" class="btn btn-primary col-sm-12 btn-block">Color options</button>
 					<button type="button" id="menuTurbo" class="btn btn-primary col-sm-12 btn-block ">Add turbo</button>
 					<button type="button" id="menuFix" class="btn btn-primary col-sm-12 btn-block ">Fix vehicle</button>
 				</div>
@@ -47,13 +54,12 @@
 					<button type="button" id="trs4" class="btn btn-primary col-sm-12 btn-block ">Race Transmission</button>
 				</div>
 
-				<div class="row rozihide" id="breaksButtons" style="display: none">
+				<div class="row rozihide" id="brakesButtons" style="display: none">
 					<button type="button" id="br1" class="btn btn-primary col-sm-12 btn-block ">Standard Brakes</button>
 					<button type="button" id="br2" class="btn btn-primary col-sm-12 btn-block ">Street Brakes</button>
 					<button type="button" id="br3" class="btn btn-primary col-sm-12 btn-block ">Sport Brakes</button>
 					<button type="button" id="br4" class="btn btn-primary col-sm-12 btn-block ">Race Brakes</button>
 				</div>
-
 				<div class="row rozihide" id="suspensionButtons" style="display: none">
 					<button type="button" id="su1" class="btn btn-primary col-sm-12 btn-block ">Standard Suspension</button>
 					<button type="button" id="su2" class="btn btn-primary col-sm-12 btn-block ">Lower Suspension</button>
@@ -62,11 +68,15 @@
 					<button type="button" id="su5" class="btn btn-primary col-sm-12 btn-block ">Race Suspension</button>
 				</div>
 
-				<div class="row">
-						<button id="menuOkay" type="button" class="btn btn-success center-block col-sm-6">Okay</button>
+				<div class="rozihide" id="colorOptions" style="display: none">
+					<div class="row">
+						<canvas class="col-sm-6" id="myCanvas" width="365" height="365"></canvas>
+						<div id="preview" class="col-sm-6"></div>
+					</div>	
 				</div>
-			</div>
-    </div>
+				<div class="row">
+					<button id="menuOkay" type="button" class="btn btn-success center-block col-sm-6">Okay</button>
+				</div>
   </div>
 </div>
 	</div>

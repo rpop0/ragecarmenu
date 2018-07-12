@@ -35,3 +35,30 @@ button {
 .center-block {
   float:none;
 }
+
+
+.picker{
+    margin: auto;
+    width: 360upx;
+    height: 180px;
+}
+#display{
+
+    height: 50px;
+    background: #000000;
+    transition: background 100ms;
+    margin-top: 15px;
+    border: 1px solid #000;
+}
+input{
+    display: block;
+    width: 100%;
+}
+
+#preview {
+    border:1px #000 solid;
+    box-shadow:2px 3px 3px #444444;
+    height:80px;
+    width:80px;
+    border-radius:3px;
+}
