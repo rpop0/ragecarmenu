@@ -1,0 +1,15 @@
+[Version 1.0.0]
+-Initial release
+
+[Version 1.0.1]
+-Typos and visual aspects slightly changed
+
+[Version 1.0.2]
+-Fixed some typos regarding brakes and and some internal changes.
+
+[Version 1.0.3]
+-Added a new menu for color picking (https://i.imgur.com/gZpdgke.png) hover over the color you want and click it to change the vehicle's color.
+-Added notifications to confirm that you have added modifcation.
+-Chat enabled while using the menu.
+-It is now impossible to open two menus at once.
+-If your cursor disappears, you can make it appear once more by doing the command /cursor.
