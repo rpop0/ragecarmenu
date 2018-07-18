@@ -6,11 +6,7 @@ namespace CarMenu
     public class Main : Script
     {
     
-        public static class Globals
-        {
-            public static bool CmenuActive;
-        }
-        
+
         [RemoteEvent("CmenuFix")]
         public void OnCmenuFix(Client player)
         {
@@ -46,14 +42,9 @@ namespace CarMenu
             {
                 NAPI.Chat.SendChatMessageToPlayer(player, "[ERROR]: Not in any vehicle!");
             }
-            else if (Globals.CmenuActive == true)
-            {
-                NAPI.Chat.SendChatMessageToPlayer(player, "[ERROR]: Vehicle menu is already active!");
-            }
             else
             {
                 NAPI.ClientEvent.TriggerClientEvent(player, "cmenuActive");
-                Globals.CmenuActive = true;
             }
             
         }

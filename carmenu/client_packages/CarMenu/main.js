@@ -1,7 +1,16 @@
+var menuEvents = ["carColorChangeToServer", "menuOkayToServer", "menuFixToServer", "ems1", "ems2", "ems3", "ems4", "ems5", "br1", "br2", "br3", "br4", "su1", "su2", "su3", "su4", "su5",  "trs1", "trs2", "trs3", "trs4", "cmenuDone", "cmenuCursor", "menuTurboToServer"];
+
+
+var carMenuOpen = false;
 mp.events.add('cmenuActive', () =>{
+	if(carMenuOpen) return 0;
 	carMenu = mp.browsers.new('package://CarMenu/carmenu.html');
 	mp.gui.cursor.show(true, true);
+	carMenuOpen = true;
 });
+
+
+
 
 
 mp.events.add("carColorChangeToServer", (red, green, blue) =>{
@@ -11,9 +20,8 @@ mp.events.add("carColorChangeToServer", (red, green, blue) =>{
 	mp.game.ui.drawNotification(true, false);
 });
 
-mp.events.add("menuOkayToServer", () => {
-	mp.events.callRemote('CmenuOkay');
-});
+
+
 
 mp.events.add('menuFixToServer', () => {
 	mp.events.callRemote('CmenuFix');
@@ -153,12 +161,19 @@ mp.events.add('trs4', () => {
 
 mp.events.add('cmenuDone', () =>{
 	carMenu.destroy();
+	carMenuOpen = false;
 	mp.gui.cursor.show(false, false);
 })
 
 mp.events.add('cmenuCursor', () =>{
 	mp.gui.cursor.show(true, true);
 });
+
+mp.events.add("menuOkayToServer", () => {
+	mp.events.callRemote('CmenuOkay');
+});
+
+
 
 
 
