@@ -169,7 +169,9 @@ mp.events.add('cmenuCursor', () =>{
 	mp.gui.cursor.show(true, true);
 });
 
-
+mp.events.add("menuOkayToServer", () => {
+	mp.events.callRemote('CmenuOkay');
+});
 
 
 
