@@ -13,3 +13,6 @@
 -Chat enabled while using the menu.
 -It is now impossible to open two menus at once.
 -If your cursor disappears, you can make it appear once more by doing the command /cursor.
+
+[Version 1.0.4]
+-Bugfixes
